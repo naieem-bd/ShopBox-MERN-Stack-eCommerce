@@ -1,0 +1,22 @@
+{
+  "name": "shopbox-mern-stack-ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naieem-bd/ShopBox-MERN-Stack-eCommerce.git"
+  },
+  "author": "Naieem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naieem-bd/ShopBox-MERN-Stack-eCommerce/issues"
+  },
+  "homepage": "https://github.com/naieem-bd/ShopBox-MERN-Stack-eCommerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
