@@ -22,7 +22,8 @@
   "homepage": "https://github.com/naieem-bd/ShopBox-MERN-Stack-eCommerce#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
