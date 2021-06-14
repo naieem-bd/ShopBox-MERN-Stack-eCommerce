@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/naieem-bd/ShopBox-MERN-Stack-eCommerce#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
