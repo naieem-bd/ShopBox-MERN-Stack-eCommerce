@@ -36,19 +36,19 @@ const addOrderItems = asyncHandler(async (req, res) => {
 });
 
 // Get order by ID
-// const getOrderById = asyncHandler(async (req, res) => {
-//   const order = await Order.findById(req.params.id).populate(
-//     'user',
-//     'name email'
-//   )
+const getOrderById = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id).populate(
+    'user',
+    'name email'
+  );
 
-//   if (order) {
-//     res.json(order)
-//   } else {
-//     res.status(404)
-//     throw new Error('Order not found')
-//   }
-// })
+  if (order) {
+    res.json(order);
+  } else {
+    res.status(404);
+    throw new Error('Order not found');
+  }
+});
 
 // Update order to paid
 // const updateOrderToPaid = asyncHandler(async (req, res) => {
@@ -104,7 +104,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
 export {
   addOrderItems,
-  // getOrderById,
+  getOrderById,
   // updateOrderToPaid,
   // updateOrderToDelivered,
   // getMyOrders,
