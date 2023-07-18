@@ -8,9 +8,9 @@ import Loader from '../components/Loader';
 import {
   listProducts,
   deleteProduct,
-  // createProduct,
+  createProduct,
 } from '../actions/productActions';
-// import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
+import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
 
 const ProductListScreen = ({ history, match }) => {
   // const pageNumber = match.params.pageNumber || 1;
@@ -27,42 +27,39 @@ const ProductListScreen = ({ history, match }) => {
     success: successDelete,
   } = productDelete;
 
-  // const productCreate = useSelector((state) => state.productCreate);
-  // const {
-  //   loading: loadingCreate,
-  //   error: errorCreate,
-  //   success: successCreate,
-  //   product: createdProduct,
-  // } = productCreate;
+  const productCreate = useSelector((state) => state.productCreate);
+  const {
+    loading: loadingCreate,
+    error: errorCreate,
+    success: successCreate,
+    product: createdProduct,
+  } = productCreate;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   useEffect(() => {
-    if (userInfo && userInfo.isAdmin) {
-      dispatch(listProducts());
-    } else {
+    dispatch({ type: PRODUCT_CREATE_RESET });
+
+    if (!userInfo || !userInfo.isAdmin) {
       history.push('/login');
     }
 
-    // dispatch({ type: PRODUCT_CREATE_RESET });
-
-    // if (!userInfo || !userInfo.isAdmin) {
-    //   history.push('/login');
-    // }
-
-    // if (successCreate) {
-    //   history.push(`/admin/product/${createdProduct._id}/edit`);
-    // } else {
-    //   dispatch(listProducts('', pageNumber));
-    // }
+    if (successCreate) {
+      history.push(`/admin/product/${createdProduct._id}/edit`);
+    } else {
+      dispatch(
+        listProducts()
+        // '', pageNumber
+      );
+    }
   }, [
     dispatch,
     history,
     userInfo,
-    // successDelete,
-    // successCreate,
-    // createdProduct,
+    successDelete,
+    successCreate,
+    createdProduct,
     // pageNumber,
   ]);
 
@@ -72,9 +69,9 @@ const ProductListScreen = ({ history, match }) => {
     }
   };
 
-  // const createProductHandler = () => {
-  //   dispatch(createProduct());
-  // };
+  const createProductHandler = () => {
+    dispatch(createProduct());
+  };
 
   return (
     <>
@@ -83,18 +80,15 @@ const ProductListScreen = ({ history, match }) => {
           <h1>Products</h1>
         </Col>
         <Col className='text-right'>
-          <Button
-            className='my-3'
-            // onClick={createProductHandler}
-          >
+          <Button className='my-3' onClick={createProductHandler}>
             <i className='fas fa-plus'></i> Create Product
           </Button>
         </Col>
       </Row>
       {loadingDelete && <Loader />}
       {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
-      {/* {loadingCreate && <Loader />}
-      {errorCreate && <Message variant='danger'>{errorCreate}</Message>} */}
+      {loadingCreate && <Loader />}
+      {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
       {loading ? (
         <Loader />
       ) : error ? (
