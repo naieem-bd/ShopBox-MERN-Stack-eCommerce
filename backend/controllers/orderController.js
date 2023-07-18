@@ -97,10 +97,10 @@ const getMyOrders = asyncHandler(async (req, res) => {
 });
 
 // Get all orders
-// const getOrders = asyncHandler(async (req, res) => {
-//   const orders = await Order.find({}).populate('user', 'id name')
-//   res.json(orders)
-// })
+const getOrders = asyncHandler(async (req, res) => {
+  const orders = await Order.find({}).populate('user', 'id name');
+  res.json(orders);
+});
 
 export {
   addOrderItems,
@@ -108,5 +108,5 @@ export {
   updateOrderToPaid,
   // updateOrderToDelivered,
   getMyOrders,
-  // getOrders,
+  getOrders,
 };
