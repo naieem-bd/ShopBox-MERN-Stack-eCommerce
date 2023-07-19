@@ -74,21 +74,21 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 });
 
 // Update order to delivered
-// const updateOrderToDelivered = asyncHandler(async (req, res) => {
-//   const order = await Order.findById(req.params.id)
+const updateOrderToDelivered = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id);
 
-//   if (order) {
-//     order.isDelivered = true
-//     order.deliveredAt = Date.now()
+  if (order) {
+    order.isDelivered = true;
+    order.deliveredAt = Date.now();
 
-//     const updatedOrder = await order.save()
+    const updatedOrder = await order.save();
 
-//     res.json(updatedOrder)
-//   } else {
-//     res.status(404)
-//     throw new Error('Order not found')
-//   }
-// })
+    res.json(updatedOrder);
+  } else {
+    res.status(404);
+    throw new Error('Order not found');
+  }
+});
 
 // Get logged in user orders
 const getMyOrders = asyncHandler(async (req, res) => {
@@ -106,7 +106,7 @@ export {
   addOrderItems,
   getOrderById,
   updateOrderToPaid,
-  // updateOrderToDelivered,
+  updateOrderToDelivered,
   getMyOrders,
   getOrders,
 };
