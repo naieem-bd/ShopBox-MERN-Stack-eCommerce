@@ -1,3 +1,7 @@
+body {
+  background-color: #F8F8F8;
+}
+
 main {
     min-height: 80vh;
   }
@@ -15,12 +19,43 @@ main {
     font-size: 1.4rem;
     padding: 0.5rem 0;
   }
+
+  .btn-primary {
+    background-color: #2488FF;
+    border-color: #2488FF;
+  }
+
+
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.btn-primary.focus, .btn-primary:focus {box-shadow: none;}
+
+  /* header area start */
+  .header-area .bg-light {
+    background-color: #fff !important;
+    box-shadow: 0px 2px 3px 0px #e5e5e5;
+  }
+
+  .search-box .form-control {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-left: 15px;
+  }  
+
+.search-box .input-group-append button.btn {
+  border-radius: 0 25px 25px 0;
+  padding-left: 15px;
+  padding-right: 20px;
+}
+  /* header area end */
   
   .rating span {
     margin: 0.1rem;
   }
   
-  /* carousel */
   .carousel-item-next,
   .carousel-item-prev,
   .carousel-item.active {
@@ -46,6 +81,14 @@ main {
   .carousel a {
     margin: 0 auto;
   }
+
+
+  .navbar-brand img {
+    height: 55px;
+    margin-right: 40px;
+}
+
+
   @media (max-width: 900px) {
     .carousel-caption h2 {
       font-size: 2.5vw;

@@ -11,9 +11,9 @@ import {
   USER_DETAILS_SUCCESS,
   USER_DETAILS_FAIL,
   USER_DETAILS_RESET,
-  USER_PROFILE_UPDATE_REQUEST,
-  USER_PROFILE_UPDATE_SUCCESS,
-  USER_PROFILE_UPDATE_FAIL,
+  USER_UPDATE_PROFILE_REQUEST,
+  USER_UPDATE_PROFILE_SUCCESS,
+  USER_UPDATE_PROFILE_FAIL,
   USER_LIST_REQUEST,
   USER_LIST_SUCCESS,
   USER_LIST_FAIL,
@@ -24,7 +24,6 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
-  USER_PROFILE_UPDATE_RESET,
 } from '../constants/userConstants';
 import { ORDER_LIST_MY_RESET } from '../constants/orderConstants';
 
@@ -67,10 +66,14 @@ export const login = (email, password) => async (dispatch) => {
 // action for logout
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
+  localStorage.removeItem('cartItems');
+  localStorage.removeItem('shippingAddress');
+  localStorage.removeItem('paymentMethod');
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: ORDER_LIST_MY_RESET });
   dispatch({ type: USER_LIST_RESET });
+  document.location.href = '/login';
 };
 
 // action for register
@@ -141,12 +144,16 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout());
+    }
     dispatch({
       type: USER_DETAILS_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: message,
     });
   }
 };
@@ -155,7 +162,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
 export const updateUserProfile = (user) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: USER_PROFILE_UPDATE_REQUEST,
+      type: USER_UPDATE_PROFILE_REQUEST,
     });
 
     const {
@@ -172,16 +179,25 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     const { data } = await axios.put(`/api/users/profile`, user, config);
 
     dispatch({
-      type: USER_PROFILE_UPDATE_SUCCESS,
+      type: USER_UPDATE_PROFILE_SUCCESS,
       payload: data,
     });
-  } catch (error) {
     dispatch({
-      type: USER_PROFILE_UPDATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      type: USER_LOGIN_SUCCESS,
+      payload: data,
+    });
+    localStorage.setItem('userInfo', JSON.stringify(data));
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout());
+    }
+    dispatch({
+      type: USER_UPDATE_PROFILE_FAIL,
+      payload: message,
     });
   }
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+// import logo from 'images/alexa.jpg';
 import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -17,11 +18,14 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
+    <header className='header-area'>
+      <Navbar bg='light' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>ShopBox</Navbar.Brand>
+            {/* <Navbar.Brand>ShopBox</Navbar.Brand> */}
+            <Navbar.Brand>
+              <img src='/images/shopBoxLogo.png' alt='Logo' />
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -29,7 +33,7 @@ const Header = () => {
             <Nav className='ml-auto'>
               <LinkContainer to='/cart'>
                 <Nav.Link>
-                  <i className='fas fa-shopping-cart'></i> Cart
+                  <i class='fas fa-shopping-basket'></i>
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
@@ -44,7 +48,7 @@ const Header = () => {
               ) : (
                 <LinkContainer to='/login'>
                   <Nav.Link>
-                    <i className='fas fa-user'></i> Sign In
+                    <i class='far fa-user'></i>
                   </Nav.Link>
                 </LinkContainer>
               )}
