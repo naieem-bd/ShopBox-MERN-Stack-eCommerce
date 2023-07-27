@@ -7,8 +7,10 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
+import TopRatedProducts from '../components/TopRatedProducts';
 import Meta from '../components/Meta';
 import { listProducts } from '../actions/productActions';
+import ServiceBanner from '../components/ServiceBanner';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -28,7 +30,11 @@ const HomeScreen = ({ match }) => {
     <>
       <Meta />
       {!keyword ? (
-        <ProductCarousel />
+        // <ProductCarousel />
+        <>
+          <TopRatedProducts />
+          <ServiceBanner />
+        </>
       ) : (
         <Link to='/' className='btn btn-light'>
           Go Back

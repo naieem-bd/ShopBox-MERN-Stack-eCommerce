@@ -1,5 +1,5 @@
 import React from 'react';
-// import logo from 'images/alexa.jpg';
+import logo from '../images/shopBoxLogo.png';
 import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -24,7 +24,8 @@ const Header = () => {
           <LinkContainer to='/'>
             {/* <Navbar.Brand>ShopBox</Navbar.Brand> */}
             <Navbar.Brand>
-              <img src='/images/shopBoxLogo.png' alt='Logo' />
+              {/* <img src='/images/shopBoxLogo.png' alt='Logo' /> */}
+              <img src={logo} alt='Logo' />
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

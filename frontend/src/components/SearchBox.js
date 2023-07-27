@@ -25,8 +25,7 @@ const SearchBox = ({ history }) => {
             className=''></Form.Control>
           <InputGroup.Append>
             <Button type='submit' variant='primary'>
-              <i class='fas fa-search mr-2'></i>
-              Search
+              <i class='fas fa-search'></i>
             </Button>
           </InputGroup.Append>
         </InputGroup>

@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
 body {
-  background-color: #F8F8F8;
+  background-color: #f6f6f6;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 main {
     min-height: 80vh;
+  }
+
+  p {
+    margin-bottom: .5rem;
   }
   
   h3 {
@@ -20,11 +30,26 @@ main {
     padding: 0.5rem 0;
   }
 
+
   .btn-primary {
     background-color: #2488FF;
     border-color: #2488FF;
   }
 
+  .box {
+    box-shadow: 0px 1px 4px 0 rgba(0,0,0,.09);
+    padding: 1rem;
+    border: none;
+    border-radius: 0;
+    position: relative;
+}  
+
+.box .badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 99;
+}
 
 
 .form-control:focus {
@@ -33,7 +58,7 @@ main {
 
 .btn-primary.focus, .btn-primary:focus {box-shadow: none;}
 
-  /* header area start */
+
   .header-area .bg-light {
     background-color: #fff !important;
     box-shadow: 0px 2px 3px 0px #e5e5e5;
@@ -50,8 +75,31 @@ main {
   padding-left: 15px;
   padding-right: 20px;
 }
-  /* header area end */
+
+
+  .pro-name a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+    text-decoration: none;
+  }
+  .pro-name a:hover {
+    color: #0069d9;
+}
+
+.pro-price {
+  font-size: 18px;
+  font-weight: 700;
+}
   
+.top-big .pro-name a {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.top-big .pro-price {
+  font-size: 25px;
+}
   .rating span {
     margin: 0.1rem;
   }
@@ -88,6 +136,37 @@ main {
     margin-right: 40px;
 }
 
+.service-box-wrap {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.service-box {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.service-icon {
+  margin-right: 12px;
+}
+
+.service-icon i {
+  font-size: 28px;
+  color: #2488FF;
+}
+
+.service-text h4 {
+  font-size: 15px;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.service-text p {
+  margin: 0;
+  font-size: 13px;
+  color: #999;
+}
 
   @media (max-width: 900px) {
     .carousel-caption h2 {
