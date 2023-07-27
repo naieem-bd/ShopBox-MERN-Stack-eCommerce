@@ -4,9 +4,9 @@ import { Row, Col, Card } from 'react-bootstrap';
 const ServiceBanner = () => {
   return (
     <>
-      <Card className='box service-box-wrap'>
+      <Card className='box service-box-wrap mb-5'>
         <Row>
-          <Col md={3} xs={2}>
+          <Col lg={3} xs={6}>
             <div className='service-box'>
               <div className='service-icon'>
                 <i class='fas fa-trophy'></i>
@@ -17,7 +17,7 @@ const ServiceBanner = () => {
               </div>
             </div>
           </Col>
-          <Col md={3} xs={2}>
+          <Col lg={3} xs={6}>
             <div className='service-box'>
               <div className='service-icon'>
                 <i class='fas fa-shield-alt'></i>
@@ -28,7 +28,7 @@ const ServiceBanner = () => {
               </div>
             </div>
           </Col>
-          <Col md={3} xs={2}>
+          <Col lg={3} xs={6}>
             <div className='service-box'>
               <div className='service-icon'>
                 <i class='fas fa-undo-alt'></i>
@@ -39,7 +39,7 @@ const ServiceBanner = () => {
               </div>
             </div>
           </Col>
-          <Col md={3} xs={2}>
+          <Col lg={3} xs={6}>
             <div className='service-box'>
               <div className='service-icon'>
                 <i class='fas fa-shipping-fast'></i>

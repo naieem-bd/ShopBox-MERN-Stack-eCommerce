@@ -12,13 +12,18 @@ const TopRatedProducts = () => {
     <>
       <Row>
         <Col lg={7}>
-          <Card className='box top-big py-4'>
+          <Card className='box top-big py-4 mb-4'>
             <Badge pill variant='warning' className='text-white'>
               Top Rated
             </Badge>
             <Row>
               <Col xs={7}>
-                <Image src={ImgTablate} fluid />
+                <Image
+                  src={ImgTablate}
+                  fluid
+                  className='my-1'
+                  style={{ paddingTop: 2 }}
+                />
               </Col>
               <Col xs={5}>
                 <div className='product-info mb-4 pt-4 pb-3'>

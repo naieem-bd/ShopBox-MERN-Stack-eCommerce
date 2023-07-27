@@ -157,7 +157,7 @@ main {
 }
 
 .service-text h4 {
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 0;
   font-weight: 600;
 }
@@ -167,6 +167,22 @@ main {
   font-size: 13px;
   color: #999;
 }
+
+.sub-heading {
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  font-weight: 600;
+  font-size: 27px;
+  border-left: 5px solid #FFC107;
+  padding-left: 5px;
+  line-height: 24px;
+}
+.mb-5 {
+  margin-bottom: 50px !important;
+}
+
+
 
   @media (max-width: 900px) {
     .carousel-caption h2 {
