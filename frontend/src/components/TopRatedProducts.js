@@ -27,8 +27,10 @@ const TopRatedProducts = () => {
               </Col>
               <Col xs={5}>
                 <div className='product-info mb-4 pt-4 pb-3'>
-                  <p className='pro-name mt-4'>
-                    <Link to='#'>The product name will goes here...</Link>
+                  <p className='pro-name mt-4 line-clamp-2'>
+                    <Link to='#'>
+                      This is the very long long product name will goes here
+                    </Link>
                   </p>
                   <div className='pro-rivew my-3'>
                     <Rating value={4} text='7 reviews' />
@@ -54,8 +56,11 @@ const TopRatedProducts = () => {
               </Col>
               <Col xs={7}>
                 <div className='product-info'>
-                  <p className='pro-name mt-2'>
-                    <Link to='#'>The product name will</Link>
+                  <p className='pro-name mt-2 line-clamp-2'>
+                    <Link to='#'>
+                      This is the very very lo...ng long product name will goes
+                      here
+                    </Link>
                   </p>
                   <div className='pro-rivew my-2'>
                     <Rating value={4} text='7 Reviews' />
@@ -79,8 +84,11 @@ const TopRatedProducts = () => {
               </Col>
               <Col xs={7}>
                 <div className='product-info'>
-                  <p className='pro-name mt-2'>
-                    <Link to='#'>The product name will</Link>
+                  <p className='pro-name mt-2 line-clamp-2'>
+                    <Link to='#'>
+                      This is the very very lo...ng long product name will goes
+                      here
+                    </Link>
                   </p>
                   <div className='pro-rivew my-2'>
                     <Rating value={4} text='7 Reviews' />
