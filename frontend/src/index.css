@@ -90,6 +90,9 @@ main {
   .pro-name a:hover {
     color: #0069d9;
 }
+.sgl-product .pro-name a {
+  font-size: 15px;
+}
 
 .pro-price {
   font-size: 18px;
@@ -233,6 +236,10 @@ main {
 .pro-dtl-box p span {
   font-weight: 600;
   color: #777;
+}
+
+.category {
+  margin-bottom: 20px;
 }
 
 footer {

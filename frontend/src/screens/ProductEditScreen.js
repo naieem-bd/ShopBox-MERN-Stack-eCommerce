@@ -161,11 +161,24 @@ const ProductEditScreen = ({ match, history }) => {
 
             <Form.Group controlId='category'>
               <Form.Label>Category</Form.Label>
-              <Form.Control
+              {/* <Form.Control
                 type='text'
                 placeholder='Enter category'
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}></Form.Control>
+                onChange={(e) => setCategory(e.target.value)}></Form.Control> */}
+              <Form.Control
+                as='select'
+                size='sm'
+                className='category'
+                type='text'
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}>
+                <option value=''>Select Category</option>
+                <option value='Electronics'>Electronics</option>
+                <option value='Fashion and Apparel'>Fashion and Apparel</option>
+                <option value='Home and Living'>Home and Living</option>
+                <option value='Automotive'>Automotive</option>
+              </Form.Control>
             </Form.Group>
 
             <Form.Group controlId='description'>
