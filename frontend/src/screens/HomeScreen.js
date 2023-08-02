@@ -8,9 +8,10 @@ import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import TopRatedProducts from '../components/TopRatedProducts';
+import ServiceBanner from '../components/ServiceBanner';
+import NoProductFound from '../components/NoProductFound';
 import Meta from '../components/Meta';
 import { listProducts } from '../actions/productActions';
-import ServiceBanner from '../components/ServiceBanner';
 
 const HomeScreen = ({ match }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -135,11 +136,7 @@ const HomeScreen = ({ match }) => {
                 ))
               ) : (
                 <Col md={12}>
-                  <Card className='box text-center py-4'>
-                    <p className='text-danger my-4'>
-                      No products found for "{selectedCategory}" this category.
-                    </p>
-                  </Card>
+                  <NoProductFound />
                 </Col>
               )}
             </Row>

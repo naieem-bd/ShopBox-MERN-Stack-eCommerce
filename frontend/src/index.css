@@ -242,6 +242,26 @@ main {
   margin-bottom: 20px;
 }
 
+.no-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: #bbb;
+}
+
+.no-product i {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.no-product p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 footer {
   background: #282C34;
   color: #fff;
