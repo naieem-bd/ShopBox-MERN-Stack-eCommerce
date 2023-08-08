@@ -40,7 +40,7 @@ const LoginScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <Card className='box p-5'>
-        <h2 class='sub-heading mb-5'>Login</h2>
+        <h2 class='sub-heading mb-5'>Sign In</h2>
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
@@ -80,7 +80,7 @@ const LoginScreen = ({ location, history }) => {
           <InputGroup className='mb-4'>
             <InputGroup.Prepend>
               <InputGroup.Text>
-                <i class='fas fa-lock'></i>
+                <i class='fas fa-key'></i>
               </InputGroup.Text>
             </InputGroup.Prepend>
             <FormControl
@@ -92,11 +92,11 @@ const LoginScreen = ({ location, history }) => {
           </InputGroup>
 
           <Button type='submit' variant='primary' block>
-            Login
+            Sign In
           </Button>
         </Form>
 
-        <div className='mt-5'>
+        <div className='mt-4'>
           New Customer?{' '}
           <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
             Register

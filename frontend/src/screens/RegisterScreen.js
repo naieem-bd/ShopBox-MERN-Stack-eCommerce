@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Card,
+  InputGroup,
+  FormControl,
+} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -38,60 +46,114 @@ const RegisterScreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <h1>Sign Up</h1>
-      {message && <Message variant='danger'>{message}</Message>}
-      {error && <Message variant='danger'>{error}</Message>}
-      {loading && <Loader />}
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='name'>
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type='name'
-            placeholder='Enter name'
-            value={name}
-            onChange={(e) => setName(e.target.value)}></Form.Control>
-        </Form.Group>
+      <Card className='box p-5'>
+        <h2 class='sub-heading mb-5'>Sign Up</h2>
+        {message && <Message variant='danger'>{message}</Message>}
+        {error && <Message variant='danger'>{error}</Message>}
+        {loading && <Loader />}
+        <Form onSubmit={submitHandler}>
+          {/* <Form.Group controlId='name'>
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type='name'
+              placeholder='Enter name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}></Form.Control>
+          </Form.Group> */}
+          <InputGroup className='mb-4'>
+            <InputGroup.Prepend>
+              <InputGroup.Text>
+                <i class='fas fa-user'></i>
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              type='name'
+              placeholder='User Name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </InputGroup>
 
-        <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Enter email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}></Form.Control>
-        </Form.Group>
+          {/* <Form.Group controlId='email'>
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control
+              type='email'
+              placeholder='Enter email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}></Form.Control>
+          </Form.Group> */}
+          <InputGroup className='mb-4'>
+            <InputGroup.Prepend>
+              <InputGroup.Text>
+                <i class='fas fa-envelope'></i>
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              type='email'
+              placeholder='Email Address'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </InputGroup>
 
-        <Form.Group controlId='password'>
-          <Form.Label>Enter Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Enter password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}></Form.Control>
-        </Form.Group>
+          {/* <Form.Group controlId='password'>
+            <Form.Label>Enter Password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Enter password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}></Form.Control>
+          </Form.Group> */}
+          <InputGroup className='mb-4'>
+            <InputGroup.Prepend>
+              <InputGroup.Text>
+                <i class='fas fa-key'></i>
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </InputGroup>
 
-        <Form.Group controlId='password'>
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Confirm password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}></Form.Control>
-        </Form.Group>
+          {/* <Form.Group controlId='password'>
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Confirm password'
+              value={confirmPassword}
+              onChange={(e) =>
+                setConfirmPassword(e.target.value)
+              }></Form.Control>
+          </Form.Group> */}
+          <InputGroup className='mb-4'>
+            <InputGroup.Prepend>
+              <InputGroup.Text>
+                <i class='fas fa-key'></i>
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              type='password'
+              placeholder='Confirm Password'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </InputGroup>
 
-        <Button type='submit' variant='primary'>
-          Sign Up
-        </Button>
-      </Form>
+          <Button type='submit' variant='primary' block>
+            Sign Up
+          </Button>
+        </Form>
 
-      <Row className='py-3'>
-        <Col>
+        <div className='mt-4'>
           Have an Account?{' '}
           <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
             Login
           </Link>
-        </Col>
-      </Row>
+        </div>
+      </Card>
     </FormContainer>
   );
 };
