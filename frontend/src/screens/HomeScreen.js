@@ -23,14 +23,6 @@ const HomeScreen = ({ match }) => {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
 
-  // const electronicsProducts = products.filter(
-  //   (product) => product.category === 'Electronics'
-  // );
-
-  // const fashionProducts = products.filter(
-  //   (product) => product.category === 'Fashion'
-  // );
-
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
     : products;
@@ -59,42 +51,6 @@ const HomeScreen = ({ match }) => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-          {/* {!keyword && (
-            <div className='mb-5'>
-              <h2 className='sub-heading'>Electronics Products</h2>
-              <Row>
-                {electronicsProducts.map((product) => (
-                  <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                    <Product product={product} />
-                  </Col>
-                ))}
-              </Row>
-              <Paginate
-                pages={pages}
-                page={page}
-                keyword={keyword ? keyword : ''}
-              />
-            </div>
-          )} */}
-
-          {/* {!keyword && (
-            <div className='mb-5'>
-              <h2 className='sub-heading'>Fashion Products</h2>
-              <Row>
-                {fashionProducts.map((product) => (
-                  <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                    <Product product={product} />
-                  </Col>
-                ))}
-              </Row>
-              <Paginate
-                pages={pages}
-                page={page}
-                keyword={keyword ? keyword : ''}
-              />
-            </div>
-          )} */}
-
           <div className='mb-5'>
             {!keyword ? (
               <Row>
