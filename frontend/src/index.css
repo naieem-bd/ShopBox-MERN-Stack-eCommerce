@@ -262,6 +262,10 @@ main {
   font-weight: 600;
 }
 
+.no-sign .alert {
+  margin-bottom: 0px;
+}
+
 footer {
   background: #282C34;
   color: #fff;
