@@ -262,14 +262,19 @@ main {
   font-weight: 600;
 }
 
-.no-sign .alert {
+.alert {
   margin-bottom: 0px;
+}
+
+.table td, .table th {
+  vertical-align: middle;
 }
 
 footer {
   background: #282C34;
   color: #fff;
 }
+
 
   @media (max-width: 900px) {
     .carousel-caption h2 {

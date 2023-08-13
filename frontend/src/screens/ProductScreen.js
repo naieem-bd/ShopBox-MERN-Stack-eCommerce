@@ -206,12 +206,10 @@ const ProductScreen = ({ history, match }) => {
                         </Button>
                       </Form>
                     ) : (
-                      <div className='no-sign'>
-                        <Message>
-                          Please <Link to='/login'>sign in</Link> to write a
-                          review{' '}
-                        </Message>
-                      </div>
+                      <Message>
+                        Please <Link to='/login'>sign in</Link> to write a
+                        review{' '}
+                      </Message>
                     )}
                   </ListGroup.Item>
                 </ListGroup>
