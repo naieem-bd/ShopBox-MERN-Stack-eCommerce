@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Table, Button, Row, Col } from 'react-bootstrap';
+import { Table, Button, Row, Col, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -74,7 +74,7 @@ const ProductListScreen = ({ history, match }) => {
     <>
       <Row className='align-items-center'>
         <Col>
-          <h1>Products</h1>
+          <h2 class='sub-heading mb-0'>Products</h2>
         </Col>
         <Col className='text-right'>
           <Button className='my-3' onClick={createProductHandler}>
@@ -82,16 +82,27 @@ const ProductListScreen = ({ history, match }) => {
           </Button>
         </Col>
       </Row>
+
       {loadingDelete && <Loader />}
-      {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
+      {errorDelete && (
+        <Card className='box'>
+          <Message variant='danger'>{errorDelete}</Message>
+        </Card>
+      )}
       {loadingCreate && <Loader />}
-      {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
+      {errorCreate && (
+        <Card className='box'>
+          <Message variant='danger'>{errorCreate}</Message>
+        </Card>
+      )}
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Card className='box'>
+          <Message variant='danger'>{error}</Message>
+        </Card>
       ) : (
-        <>
+        <Card className='box'>
           <Table striped bordered hover responsive className='table-sm'>
             <thead>
               <tr>
@@ -100,7 +111,7 @@ const ProductListScreen = ({ history, match }) => {
                 <th>PRICE</th>
                 <th>CATEGORY</th>
                 <th>BRAND</th>
-                <th></th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -111,15 +122,15 @@ const ProductListScreen = ({ history, match }) => {
                   <td>${product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
-                  <td>
+                  <td className='text-center'>
                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                      <Button variant='light' className='btn-sm'>
+                      <Button variant='warning' className='btn-sm'>
                         <i className='fas fa-edit'></i>
                       </Button>
                     </LinkContainer>
                     <Button
                       variant='danger'
-                      className='btn-sm'
+                      className='btn-sm ml-1'
                       onClick={() => deleteHandler(product._id)}>
                       <i className='fas fa-trash'></i>
                     </Button>
@@ -129,7 +140,7 @@ const ProductListScreen = ({ history, match }) => {
             </tbody>
           </Table>
           <Paginate pages={pages} page={page} isAdmin={true} />
-        </>
+        </Card>
       )}
     </>
   );
