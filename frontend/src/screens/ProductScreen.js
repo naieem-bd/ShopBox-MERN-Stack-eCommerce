@@ -150,7 +150,7 @@ const ProductScreen = ({ history, match }) => {
           <Row>
             <Col md={7}>
               <h2 class='sub-heading'>Customers Reviews</h2>
-              <Card className='box py-1'>
+              <Card className='box pb-1'>
                 {product.reviews.length === 0 && <Message>No Reviews</Message>}
                 <ListGroup variant='flush'>
                   {product.reviews.map((review) => (
