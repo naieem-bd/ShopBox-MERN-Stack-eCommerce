@@ -40,8 +40,23 @@ const Header = () => {
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id='username'>
                   <LinkContainer to='/profile'>
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                    <NavDropdown.Item>User Profile</NavDropdown.Item>
                   </LinkContainer>
+                  {userInfo && userInfo.isAdmin && (
+                    <>
+                      <NavDropdown.Divider />
+                      <LinkContainer to='/admin/userlist'>
+                        <NavDropdown.Item>User List</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to='/admin/productlist'>
+                        <NavDropdown.Item>Products List</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to='/admin/orderlist'>
+                        <NavDropdown.Item>Order List</NavDropdown.Item>
+                      </LinkContainer>
+                    </>
+                  )}
+                  <NavDropdown.Divider />
                   <NavDropdown.Item onClick={logoutHandler}>
                     Logout
                   </NavDropdown.Item>
@@ -52,19 +67,6 @@ const Header = () => {
                     <i class='far fa-user'></i>
                   </Nav.Link>
                 </LinkContainer>
-              )}
-              {userInfo && userInfo.isAdmin && (
-                <NavDropdown title='Admin' id='adminmenu'>
-                  <LinkContainer to='/admin/userlist'>
-                    <NavDropdown.Item>Users</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/admin/productlist'>
-                    <NavDropdown.Item>Products</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/admin/orderlist'>
-                    <NavDropdown.Item>Orders</NavDropdown.Item>
-                  </LinkContainer>
-                </NavDropdown>
               )}
             </Nav>
           </Navbar.Collapse>
