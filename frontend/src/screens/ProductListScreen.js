@@ -103,10 +103,10 @@ const ProductListScreen = ({ history, match }) => {
         </Card>
       ) : (
         <Card className='box'>
-          <Table striped bordered hover responsive className='table-sm'>
+          <Table striped bordered hover responsive className='table-sm mb-0'>
             <thead>
-              <tr>
-                <th>ID</th>
+              <tr className='text-center'>
+                <th className='text-left'>ID</th>
                 <th>NAME</th>
                 <th>PRICE</th>
                 <th>CATEGORY</th>
@@ -119,7 +119,7 @@ const ProductListScreen = ({ history, match }) => {
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
-                  <td>${product.price}</td>
+                  <td className='text-right'>${product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td className='text-center'>
