@@ -270,6 +270,10 @@ main {
   vertical-align: middle;
 }
 
+label {
+  font-weight: 600;
+}
+
 footer {
   background: #282C34;
   color: #fff;
