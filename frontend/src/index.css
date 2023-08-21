@@ -274,6 +274,10 @@ label {
   font-weight: 600;
 }
 
+.nav-link.disabled {
+  color: #eee;
+}
+
 footer {
   background: #282C34;
   color: #fff;
