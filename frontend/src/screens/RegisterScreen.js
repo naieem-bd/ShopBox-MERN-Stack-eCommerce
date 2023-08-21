@@ -46,20 +46,12 @@ const RegisterScreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <Card className='box p-5'>
-        <h2 class='sub-heading mb-5'>Sign Up</h2>
+      <Card className='box p-4'>
+        <h2 class='sub-heading mb-4'>Sign Up</h2>
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
-          {/* <Form.Group controlId='name'>
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type='name'
-              placeholder='Enter name'
-              value={name}
-              onChange={(e) => setName(e.target.value)}></Form.Control>
-          </Form.Group> */}
           <InputGroup className='mb-4'>
             <InputGroup.Prepend>
               <InputGroup.Text>
@@ -74,14 +66,6 @@ const RegisterScreen = ({ location, history }) => {
             />
           </InputGroup>
 
-          {/* <Form.Group controlId='email'>
-            <Form.Label>Email Address</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Enter email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}></Form.Control>
-          </Form.Group> */}
           <InputGroup className='mb-4'>
             <InputGroup.Prepend>
               <InputGroup.Text>
@@ -96,14 +80,6 @@ const RegisterScreen = ({ location, history }) => {
             />
           </InputGroup>
 
-          {/* <Form.Group controlId='password'>
-            <Form.Label>Enter Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Enter password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}></Form.Control>
-          </Form.Group> */}
           <InputGroup className='mb-4'>
             <InputGroup.Prepend>
               <InputGroup.Text>
@@ -118,16 +94,6 @@ const RegisterScreen = ({ location, history }) => {
             />
           </InputGroup>
 
-          {/* <Form.Group controlId='password'>
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Confirm password'
-              value={confirmPassword}
-              onChange={(e) =>
-                setConfirmPassword(e.target.value)
-              }></Form.Control>
-          </Form.Group> */}
           <InputGroup className='mb-4'>
             <InputGroup.Prepend>
               <InputGroup.Text>

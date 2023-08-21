@@ -26,9 +26,9 @@ const PaymentScreen = ({ history }) => {
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 step3 />
-      <h2 className='sub-heading'>Payment Method</h2>
 
-      <Card className='box'>
+      <Card className='box p-4'>
+        <h2 className='sub-heading mb-4'>Payment Method</h2>
         <Form onSubmit={submitHandler}>
           <Form.Group>
             <Form.Label as='legend'>Select Method</Form.Label>

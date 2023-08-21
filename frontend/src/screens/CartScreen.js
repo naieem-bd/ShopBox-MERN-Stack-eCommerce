@@ -42,7 +42,7 @@ const CartScreen = ({ match, location, history }) => {
       <h2 class='sub-heading'>Shopping Cart</h2>
       <Row>
         <Col lg={8}>
-          <Card className='box py-1'>
+          <Card className='box mb-3'>
             {cartItems.length === 0 ? (
               <Message>
                 Your Cart is empty <Link to='/'>Back To Shopping</Link>
