@@ -76,7 +76,6 @@ const HomeScreen = ({ match }) => {
                       Fashion and Apparel
                     </option>
                     <option value='Home and Living'>Home and Living</option>
-                    <option value='Automotive'>Automotive</option>
                   </Form.Control>
                 </Col>
               </Row>
