@@ -94,11 +94,13 @@ const ProductEditScreen = ({ match, history }) => {
   return (
     <>
       <Row className='align-items-center'>
-        <Col>
+        <Col sm={8}>
           <h2 className='sub-heading mb-0'>Create / Edit Product</h2>
         </Col>
-        <Col className='text-right'>
-          <Link to='/admin/productlist' className='btn btn-secondary my-3'>
+        <Col sm={4} className='text-right'>
+          <Link
+            to='/admin/productlist'
+            className='btn btn-secondary btn-sm my-3'>
             Product List
           </Link>
         </Col>

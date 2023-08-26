@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button, Card } from 'react-bootstrap';
+import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -49,12 +49,22 @@ const UserEditScreen = ({ match, history }) => {
 
   return (
     <>
-      <Link to='/admin/userlist' className='btn btn-light my-3'>
-        Go Back
-      </Link>
       <FormContainer>
         <Card className='box p-4'>
-          <h2 className='sub-heading mb-4'>Edit User</h2>
+          <Row>
+            <Col sm={8}>
+              <h2 className='sub-heading mb-0'>Edit User</h2>
+            </Col>
+            <Col sm={4} className='text-right'>
+              <Link
+                to='/admin/userlist'
+                className='btn btn-secondary btn-sm mb-3'>
+                <i class='fas fa-list mr-1'></i>
+                User List
+              </Link>
+            </Col>
+          </Row>
+
           {loadingUpdate && <Loader />}
           {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
           {loading ? (

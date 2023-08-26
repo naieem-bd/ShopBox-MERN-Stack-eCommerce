@@ -41,8 +41,9 @@ const HomeScreen = ({ match }) => {
           <ServiceBanner />
         </>
       ) : (
-        <Link to='/' className='btn btn-light'>
-          Go Back
+        <Link className='btn btn-primary btn-sm mb-3' to='/'>
+          <i class='fas fa-home mr-1'></i>
+          Home
         </Link>
       )}
       {loading ? (
