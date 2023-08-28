@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Form, Card } from 'react-bootstrap';
+import { Row, Col, Form, Card, Pagination } from 'react-bootstrap';
 import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import Paginate from '../components/Paginate';
+// import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import TopRatedProducts from '../components/TopRatedProducts';
 import ServiceBanner from '../components/ServiceBanner';
@@ -15,21 +15,34 @@ import { listProducts } from '../actions/productActions';
 
 const HomeScreen = ({ match }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(12); // Number of products per page
   const keyword = match.params.keyword;
-  const pageNumber = match.params.pageNumber || 1;
 
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
+  const { loading, error, products } = productList;
 
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
     : products;
 
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+    setCurrentPage(1); // Reset page when category changes
+  };
+
   useEffect(() => {
-    dispatch(listProducts(keyword, pageNumber));
-  }, [dispatch, keyword, pageNumber]);
+    dispatch(listProducts(keyword));
+  }, [dispatch, keyword]);
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   return (
     <>
@@ -69,7 +82,7 @@ const HomeScreen = ({ match }) => {
                     className='category'
                     type='text'
                     value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}>
+                    onChange={(e) => handleCategoryChange(e.target.value)}>
                     <option value=''>All Category</option>
                     <option value='Electronics'>Electronics</option>
                     <option value='Fashion and Apparel'>
@@ -84,8 +97,8 @@ const HomeScreen = ({ match }) => {
             )}
 
             <Row>
-              {filteredProducts.length > 0 ? (
-                filteredProducts.map((product) => (
+              {currentProducts.length > 0 ? (
+                currentProducts.map((product) => (
                   <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                     <Product product={product} />
                   </Col>
@@ -96,11 +109,21 @@ const HomeScreen = ({ match }) => {
                 </Col>
               )}
             </Row>
-            <Paginate
-              pages={pages}
-              page={page}
-              keyword={keyword ? keyword : ''}
-            />
+
+            {filteredProducts.length >= productsPerPage && (
+              <Pagination>
+                {Array.from({
+                  length: Math.ceil(filteredProducts.length / productsPerPage),
+                }).map((_, index) => (
+                  <Pagination.Item
+                    key={index + 1}
+                    active={index + 1 === currentPage}
+                    onClick={() => setCurrentPage(index + 1)}>
+                    {index + 1}
+                  </Pagination.Item>
+                ))}
+              </Pagination>
+            )}
           </div>
         </>
       )}

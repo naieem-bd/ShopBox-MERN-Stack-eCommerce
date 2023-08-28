@@ -278,6 +278,9 @@ label {
   color: #eee;
 }
 
+.tableFixHead { overflow: auto; height: 400px; }
+.tableFixHead thead th { position: sticky; top: 0; z-index: 99; background: #fff; }
+
 footer {
   background: #282C34;
   color: #fff;
