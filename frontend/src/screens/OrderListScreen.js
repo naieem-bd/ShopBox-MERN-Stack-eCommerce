@@ -45,37 +45,49 @@ const OrderListScreen = ({ history }) => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
-                <tr key={order._id}>
-                  <td>{order._id}</td>
-                  <td>{order.user && order.user.name}</td>
-                  <td className='text-center'>
-                    {order.createdAt.substring(0, 10)}
-                  </td>
-                  <td className='text-right'>${order.totalPrice}</td>
-                  <td className='text-center'>
-                    {order.isPaid ? (
-                      order.paidAt.substring(0, 10)
-                    ) : (
-                      <i className='fas fa-times' style={{ color: 'red' }}></i>
-                    )}
-                  </td>
-                  <td className='text-center'>
-                    {order.isDelivered ? (
-                      order.deliveredAt.substring(0, 10)
-                    ) : (
-                      <i className='fas fa-times' style={{ color: 'red' }}></i>
-                    )}
-                  </td>
-                  <td className='text-center'>
-                    <LinkContainer to={`/order/${order._id}`}>
-                      <Button variant='warning' className='btn-sm'>
-                        Details
-                      </Button>
-                    </LinkContainer>
+              {orders.length > 0 ? (
+                orders.map((order) => (
+                  <tr key={order._id}>
+                    <td>{order._id}</td>
+                    <td>{order.user && order.user.name}</td>
+                    <td className='text-center'>
+                      {order.createdAt.substring(0, 10)}
+                    </td>
+                    <td className='text-right'>${order.totalPrice}</td>
+                    <td className='text-center'>
+                      {order.isPaid ? (
+                        order.paidAt.substring(0, 10)
+                      ) : (
+                        <i
+                          className='fas fa-times'
+                          style={{ color: 'red' }}></i>
+                      )}
+                    </td>
+                    <td className='text-center'>
+                      {order.isDelivered ? (
+                        order.deliveredAt.substring(0, 10)
+                      ) : (
+                        <i
+                          className='fas fa-times'
+                          style={{ color: 'red' }}></i>
+                      )}
+                    </td>
+                    <td className='text-center'>
+                      <LinkContainer to={`/order/${order._id}`}>
+                        <Button variant='warning' className='btn-sm'>
+                          Details
+                        </Button>
+                      </LinkContainer>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan='7' className='text-danger text-center py-3'>
+                    <strong>No orders found!</strong>
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </Table>
         </Card>
