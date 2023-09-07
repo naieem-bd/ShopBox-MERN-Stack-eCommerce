@@ -5,8 +5,6 @@ import { Row, Col, Form, Card, Pagination } from 'react-bootstrap';
 import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-// import Paginate from '../components/Paginate';
-import ProductCarousel from '../components/ProductCarousel';
 import TopRatedProducts from '../components/TopRatedProducts';
 import ServiceBanner from '../components/ServiceBanner';
 import NoProductFound from '../components/NoProductFound';
@@ -48,7 +46,6 @@ const HomeScreen = ({ match }) => {
     <>
       <Meta />
       {!keyword ? (
-        // <ProductCarousel />
         <>
           <TopRatedProducts />
           <ServiceBanner />
