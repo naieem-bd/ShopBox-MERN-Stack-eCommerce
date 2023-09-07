@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react';
 import { Row, Col, Card, Image, Badge, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import ImgTablate from '../images/tablate.jpg';
-import ImgHeadphone from '../images/headphone.jpg';
-import ImgDron from '../images/dron.jpg';
-import ImgAirphone from '../images/airphone.jpg';
 import Rating from './Rating';
 
 import { useDispatch, useSelector } from 'react-redux';
