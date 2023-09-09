@@ -9,18 +9,18 @@ import {
   Card,
   Button,
   Form,
-  Badge,
 } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import Meta from '../components/Meta';
-import ImgDron from '../images/dron.jpg';
+
 import {
   listProductDetails,
   createProductReview,
 } from '../actions/productActions';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
+import TopProductsSidebar from '../components/TopProductsSidebar';
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -70,7 +70,7 @@ const ProductScreen = ({ history, match }) => {
   return (
     <div className='product-details'>
       <Link className='btn btn-primary btn-sm mb-3' to='/'>
-        <i class='fas fa-home mr-1'></i>
+        <i className='fas fa-home mr-1'></i>
         Home
       </Link>
       {loading ? (
@@ -133,13 +133,13 @@ const ProductScreen = ({ history, match }) => {
                     onClick={addToCartHandler}
                     type='button'
                     disabled={product.countInStock === 0}>
-                    <i class='fas fa-shopping-basket mr-2'></i>
+                    <i className='fas fa-shopping-basket mr-2'></i>
                     Add To Cart
                   </Button>
                 </div>
                 {/* <hr /> */}
                 <p className='mt-4'>
-                  <span>Description : </span>
+                  <span>Description : </span>className=
                   {product.description}
                 </p>
               </div>
@@ -150,7 +150,7 @@ const ProductScreen = ({ history, match }) => {
 
           <Row>
             <Col md={7}>
-              <h2 class='sub-heading'>Customers Reviews</h2>
+              <h2 className='sub-heading'>Customers Reviews</h2>
               <Card className='box pb-1'>
                 {product.reviews.length === 0 && <Message>No Reviews</Message>}
                 <ListGroup variant='flush'>
@@ -217,36 +217,8 @@ const ProductScreen = ({ history, match }) => {
               </Card>
             </Col>
             <Col md={5}>
-              <h2 class='sub-heading'>Top Products</h2>
-
-              <Card className='box mb-4'>
-                <Badge pill variant='warning' className='text-white'>
-                  Top Rated
-                </Badge>
-                <Row>
-                  <Col xs={5}>
-                    <Image src={ImgDron} fluid />
-                  </Col>
-                  <Col xs={7}>
-                    <div className='product-info'>
-                      <p className='pro-name mt-2 line-clamp-2'>
-                        <Link to='#'>
-                          This is the very very lo...ng long product name will
-                          goes here
-                        </Link>
-                      </p>
-                      <div className='pro-rivew my-2'>
-                        <Rating value={4} text='7 Reviews' />
-                      </div>
-                      <p className='pro-price mb-3'>Price: $527</p>
-                      <Button variant='outline-primary' size='sm'>
-                        <i class='fas fa-plus mr-2'></i>
-                        Add To Cart
-                      </Button>
-                    </div>
-                  </Col>
-                </Row>
-              </Card>
+              <h2 className='sub-heading'>Top Products</h2>
+              <TopProductsSidebar />
             </Col>
           </Row>
         </>
