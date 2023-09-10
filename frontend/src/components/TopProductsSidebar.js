@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Badge, Card, Col, Row, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Rating from '../components/Rating';
-import ImgDron from '../images/dron.jpg';
 
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './Loader';
@@ -14,8 +13,6 @@ const TopProductsSidebar = () => {
 
   const productTopRated = useSelector((state) => state.productTopRated);
   const { loading, error, products } = productTopRated;
-
-  console.log(products);
 
   useEffect(() => {
     dispatch(listTopProducts());
