@@ -8,9 +8,11 @@ body {
   line-height: 20px;
 }
 
-main {
-    min-height: 80vh;
+  main {
+    min-height: calc(100vh - 133px);
   }
+  
+
 
   p {
     margin-bottom: .5rem;
@@ -30,6 +32,9 @@ main {
     padding: 0.5rem 0;
   }
 
+  .logRegForm {
+    min-height: calc(100vh - 200px);
+  }
 
   .btn-primary {
     background-color: #2488FF;
