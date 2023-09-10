@@ -46,8 +46,8 @@ const RegisterScreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <Card className='box p-4'>
-        <h2 class='sub-heading mb-4'>Sign Up</h2>
+      <Card className='box p-5'>
+        <h2 class='sub-heading mb-5'>Sign Up</h2>
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}

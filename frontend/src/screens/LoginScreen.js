@@ -39,8 +39,8 @@ const LoginScreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <Card className='box p-4'>
-        <h2 class='sub-heading mb-4'>Sign In</h2>
+      <Card className='box p-5'>
+        <h2 class='sub-heading mb-5'>Sign In</h2>
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
