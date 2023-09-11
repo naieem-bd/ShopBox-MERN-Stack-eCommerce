@@ -34,3 +34,15 @@ You may change the **.env** file according to your needs. To change the **.env**
 - User Profile & Product Reviews and Ratings
 - Search and Filtering & Responsive Design
 - Payment Integration(PayPal)
+
+<img src="res-readme/Home_ShopBox-MERN.jpg" width="100%" />
+
+## Acknowledgements | 
+
+ - [React](https://react.dev/)
+ - [Redux](https://redux.js.org/)
+ - [Node](https://nodejs.org/en)
+ - [Express](https://expressjs.com/)
+ - [MongoDB](https://www.mongodb.com/)
+ - [Mongoose](https://mongoosejs.com/)
+ - [Proshop](https://github.com/bradtraversy/proshop_mern) [Inspired]
