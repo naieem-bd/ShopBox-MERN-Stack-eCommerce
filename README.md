@@ -37,7 +37,7 @@ You may change the **.env** file according to your needs. To change the **.env**
 
 <img src="res-readme/Home_ShopBox-MERN.jpg" width="100%" />
 
-## Acknowledgements | 
+## Acknowledgements
 
  - [React](https://react.dev/)
  - [Redux](https://redux.js.org/)
@@ -45,4 +45,4 @@ You may change the **.env** file according to your needs. To change the **.env**
  - [Express](https://expressjs.com/)
  - [MongoDB](https://www.mongodb.com/)
  - [Mongoose](https://mongoosejs.com/)
- - [Proshop](https://github.com/bradtraversy/proshop_mern) [Inspired]
+ - [Inspired](https://github.com/bradtraversy/proshop_mern)
