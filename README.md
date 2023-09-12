@@ -26,16 +26,20 @@ After cloning the project, you need to create a **.env** file in the project dir
 
 You may change the **.env** file according to your needs. To change the **.env** file, open it with a text editor and change the values of the variables.
 
+<img src="res-readme/Home_ShopBox-MERN.jpg" width="100%" />
+
 ## Features
 
-- User Authentication & Admin Control Panel
+- User Authentication
+- Admin Control Panel
 - User-Friendly Product Listings
-- Shopping Cart & Order Processing
-- User Profile & Product Reviews and Ratings
-- Search and Filtering & Responsive Design
+- Shopping Cart
+- Order Processing
+- User Profile
+- Product Reviews and Ratings
+- Search and Filtering
+- Responsive Design
 - Payment Integration(PayPal)
-
-<img src="res-readme/Home_ShopBox-MERN.jpg" width="100%" />
 
 ## Acknowledgements
 
